@@ -47,8 +47,9 @@ object MongoUtil {
    */
   def getFirstDoc(mongoRemotes:String,mongoDb:String,collection:String,userId:String):Document ={
     var doc: Document = MongoUtil.getInstance(mongoRemotes).getDatabase(mongoDb).getCollection(collection).find(Filters.eq("_id", userId)).first()
-    if(doc == null){
-      doc = new Document().append("_id",userId)
+    if(doc == null){// 如果为空则默认使用default用户的画像作为基础
+      doc = MongoUtil.getInstance(mongoRemotes).getDatabase(mongoDb).getCollection(collection).find(Filters.eq("_id", "default")).first()
+      doc = doc.append("_id",userId)
     }
     doc
   }

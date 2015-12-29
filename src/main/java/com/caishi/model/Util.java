@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Util {
     // 更新用户冷启动时分类权重算法
-    public static void updateDoc(String newData, Document doc){
+    public static void updateDoc(String newData, Document doc,int topN){
         CatModel o = JSON.parseObject(doc.toJson(),CatModel.class);
         Map<String,Double> cs = new HashMap<String,Double>();
         double count = 1.0;
@@ -49,6 +49,9 @@ public class Util {
                 return -flag;
             }
         });
+        if(r.size() > topN){
+            r = r.subList(0,topN);
+        }
         doc.append("catLikes",r);
     }
 

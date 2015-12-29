@@ -5,11 +5,7 @@ import java.util
 import com.mongodb.{ServerAddress, MongoClient}
 import com.mongodb.client.model.{UpdateOptions, Filters}
 import com.mongodb.client.result.UpdateResult
-import com.mongodb.client.{MongoCollection, MongoDatabase}
 import org.bson.Document
-import org.bson.conversions.Bson
-
-import scala.Array
 
 /**
  * mongodb 辅助类

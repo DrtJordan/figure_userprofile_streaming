@@ -28,7 +28,7 @@ object FigureStreaming {
       System.exit(1)
     }
 //    offline zk: 10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128
-    val Array(brokers, topics, timeWindow, numRepartition,mongoRemotes, mongoDb,collection,dislikeBase,dislikeExponent) = args
+    val Array(brokers, topics, timeWindow, numRepartition,mongoRemotes, mongoDb,collection,dislikeBase,dislikeExponent,topN) = args
 //    val zkQuorum:String = "10.4.1.221:2181,10.4.1.222:2181,10.4.1.223:2181"
 //    val zkQuorum:String = "10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128"
 
@@ -75,7 +75,7 @@ object FigureStreaming {
             try {
               // 获得原有mongodb中用户的画像对象
               var doc: Document = MongoUtil.getFirstDoc(mongoRemotes,mongoDb,collection,userId)
-              Util.updateDoc(m2,doc)
+              Util.updateDoc(m2,doc,topN.toInt)
               //upsert 用户画像
               MongoUtil.upsert(mongoRemotes,mongoDb,collection,userId,doc)
             }catch {

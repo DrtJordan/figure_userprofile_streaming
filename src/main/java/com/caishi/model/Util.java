@@ -18,6 +18,10 @@ public class Util {
         if(o.getCatLikes() != null) {
             for (Cat c : o.getCatLikes()) {
                 cs.put(String.valueOf(c.getCatId()), c.getWeight());
+                if(c.getCatId()==44)
+                    cs.put(String.valueOf(c.getCatId()),cs.get(String.valueOf(c.getCatId()))+0.3);
+                else if(c.getCatId() == 23)
+                    cs.put(String.valueOf(c.getCatId()),cs.get(String.valueOf(c.getCatId()))+0.7);
             }
             count +=1.0;
         }

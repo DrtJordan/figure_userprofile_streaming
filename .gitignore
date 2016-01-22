@@ -48,9 +48,11 @@ build
 var
 
 # IntelliJ specific files/directories
+/out
 */out
+/project
 */project
-*/.idea
+/.idea
 */.idea
 *.ipr
 *.iws

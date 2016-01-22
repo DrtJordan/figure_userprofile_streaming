@@ -4,7 +4,6 @@ import java.util.Calendar
 import java.text.SimpleDateFormat
 
 import kafka.serializer.StringDecoder
-import org.apache.spark.mllib.clustering.StreamingKMeans
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{SaveMode, SQLContext}
 import org.apache.spark.streaming._

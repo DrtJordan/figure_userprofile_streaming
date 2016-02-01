@@ -97,7 +97,8 @@ object FigureStreaming {
           try {
             // 获得原有mongodb中用户的画像对象
             var doc: Document = MongoUtil.getFirstDoc(mongoRemotes,mongoDb,collection,userId)
-            Util.updateDisLikeDoc(m2,doc,dislikeBase.toDouble,dislikeExponent.toDouble)
+//            Util.updateDisLikeDoc(m2,doc,dislikeBase.toDouble,dislikeExponent.toDouble)
+            Util.updateDisLikeDoc(m2,doc)
             //upsert 用户画像
             MongoUtil.upsert(mongoRemotes,mongoDb,collection,userId,doc)
           }catch {

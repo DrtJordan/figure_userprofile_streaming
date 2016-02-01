@@ -48,21 +48,24 @@ build
 var
 
 # IntelliJ specific files/directories
-project
-out
-.idea
+/out
+*/out
+/project
+*/project
+/.idea
+*/.idea
 *.ipr
 *.iws
 *.iml
 atlassian-ide-plugin.xml
 
 # Eclipse specific files/directories
-.classpath
+*/.classpath
 .project
 .settings
 .metadata
 .recommenders
-
+.classpath
 # NetBeans specific files/directories
 .nbattrs
 

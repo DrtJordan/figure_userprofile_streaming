@@ -23,26 +23,27 @@ import scala.util.parsing.json.JSON
  */
 object FigureStreaming {
   def main(args: Array[String]): Unit = {
-    if (args.length < 9) {
-      System.err.println("Usage: Common <zkQuorum> <brokers> <topics> <timeWindow> <numRepartition> <pathPre:hdfs pre >")
-      System.exit(1)
-    }
+//    if (args.length < 9) {
+//      System.err.println("Usage: Common <zkQuorum> <brokers> <topics> <timeWindow> <numRepartition> <pathPre:hdfs pre >")
+//      System.exit(1)
+//    }
 //    offline zk: 10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128
-    val Array(brokers, topics, timeWindow, numRepartition,mongoRemotes, mongoDb,collection,dislikeBase,dislikeExponent,topN) = args
+//    val Array(brokers, topics, timeWindow, numRepartition,mongoRemotes, mongoDb,collection,dislikeBase,dislikeExponent,topN) = args
 //    val zkQuorum:String = "10.4.1.221:2181,10.4.1.222:2181,10.4.1.223:2181"
 //    val zkQuorum:String = "10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128"
 
-//    val brokers : String = "10.4.1.201:9092,10.4.1.202:9092,10.4.1.203:9092"
+    val brokers : String = "10.4.1.201:9092,10.4.1.202:9092,10.4.1.203:9092"
 //    val topics : String = "topic_comment_event,topic_news_behavior,topic_news_social,topic_common_event,topic_scene_behavior"
 //    val brokers : String = "10.10.42.24:9092,10.10.42.25:9092,10.10.42.26:9092"
-//    val topics : String = "topic_personalization_event,topic_news_social"
-//    val timeWindow : Int = 30
-//    val numRepartition : Int = 1
-//    val mongoRemotes="10.1.1.134:27017"
-//    val mongoDb = "user_profiles"
-//    val collection ="usercatLike"
-//    val dislikeBase = 0.2
-//    val dislikeExponent = 0.4
+    val topics : String = "topic_personalization_event,topic_news_social"
+    val timeWindow : Int = 30
+    val numRepartition : Int = 1
+    val mongoRemotes="10.1.1.134:27017"
+    val mongoDb = "user_profiles"
+    val collection ="usercatLike"
+    val dislikeBase = 0.2
+    val dislikeExponent = 0.4
+    val topN:Int = 15
     val sparkConf = new SparkConf().setAppName("spark-streaming-figure")
     sparkConf.set("spark.streaming.kafka.maxRatePerPartition","10000")
     val ssc = new StreamingContext(sparkConf, Seconds(timeWindow.toInt))

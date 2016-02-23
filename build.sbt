@@ -22,6 +22,8 @@ libraryDependencies += "org.mongodb" % "mongo-java-driver" % "3.0.4"
 
 libraryDependencies += "org.json" % "json" % "20141113"
 
+libraryDependencies += "redis.clients" % "jedis" % "2.7.2"
+
 libraryDependencies += "com.google.code.gson" % "gson" % "2.3"
 
 libraryDependencies += "com.alibaba" % "fastjson" % "1.2.7"

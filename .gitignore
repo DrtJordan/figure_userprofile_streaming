@@ -52,6 +52,8 @@ var
 */out
 /project
 */project
+/META-INF
+×/META-INF
 /.idea
 */.idea
 *.ipr

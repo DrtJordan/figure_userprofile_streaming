@@ -4,7 +4,6 @@ import java.util.Calendar
 import java.text.SimpleDateFormat
 
 import kafka.serializer.StringDecoder
-import org.apache.spark.mllib.clustering.StreamingKMeans
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{SaveMode, SQLContext}
 import org.apache.spark.streaming._
@@ -12,7 +11,6 @@ import org.apache.spark.streaming.kafka._
 import org.apache.spark.{SparkContext, SparkConf}
 
 import scala.util.parsing.json.JSON
-import com.caishi.kafka.model._
 
 /**
  * Created by root on 15-10-12.
@@ -20,22 +18,22 @@ import com.caishi.kafka.model._
  */
 object Common2 {
   def main(args: Array[String]): Unit = {
-//    if (args.length < 6) {
-//      System.err.println("Usage: Common <zkQuorum> <brokers> <topics> <timeWindow> <numRepartition> <pathPre:hdfs pre >")
-//      System.exit(1)
-//    }
+    if (args.length < 6) {
+      System.err.println("Usage: Common <zkQuorum> <brokers> <topics> <timeWindow> <numRepartition> <pathPre:hdfs pre >")
+      System.exit(1)
+    }
 //    offline zk: 10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128
-//    val Array(zkQuorum, brokers, topics, timeWindow, numRepartition,pathPre) = args
+    val Array(zkQuorum, brokers, topics, timeWindow, numRepartition,pathPre) = args
 
-    val zkQuorum:String = "10.4.1.221:2181,10.4.1.222:2181,10.4.1.223:2181"
+//    val zkQuorum:String = "10.4.1.221:2181,10.4.1.222:2181,10.4.1.223:2181"
 //    val zkQuorum:String = "10.10.42.24:2181,10.10.42.25:2128,10.10.42.24:2128"
 //    val brokers : String = "10.4.1.201:9092,10.4.1.202:9092,10.4.1.203:9092"
-    val brokers = "10.10.42.24:9092,10.10.42.25:9092,10.10.42.26:9092"
+//    val brokers = "10.10.42.24:9092,10.10.42.25:9092,10.10.42.26:9092"
 //    val topics : String = "topic_comment_event,topic_news_behavior,topic_news_social,topic_common_event,topic_scene_behavior"
-    val topics : String = "topic_common_event"
-    val timeWindow : Int = 30
-    val numRepartition : Int = 2
-    val pathPre : String ="hdfs://10.4.1.4:9000/test/dw"
+//    val topics : String = "topic_common_event"
+//    val timeWindow : Int = 30
+//    val numRepartition : Int = 2
+//    val pathPre : String ="hdfs://10.4.1.4:9000/test/dw"
     val sparkConf = new SparkConf().setAppName("spark-original-log").setMaster("local")
     sparkConf.set("spark.streaming.kafka.maxRatePerPartition","10000")
     val ssc = new StreamingContext(sparkConf, Seconds(timeWindow.toInt))

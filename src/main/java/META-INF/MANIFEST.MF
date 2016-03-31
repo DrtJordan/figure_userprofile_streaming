@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Main-Class: com.caishi.kafka.customer.figure.FigureStreaming
 
-=======
-Manifest-Version: 1.0
-Main-Class: com.caishi.kafka.customer.Common
-
->>>>>>> 5137abd781db77df504212266cde5f858d65810d

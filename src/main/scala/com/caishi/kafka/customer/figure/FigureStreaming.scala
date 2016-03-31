@@ -87,7 +87,7 @@ object FigureStreaming {
     })
 
     // dislike 计算
-    lines.filter(checkDataType(_,"topic_news_social")).map(json =>{
+    lines.filter(checkDataType(_,"topic_news_social")).filter(StringUtils.isNotEmpty(_)).map(json =>{
       val m = JsonUtil.jsonToMapForDisLike(json,"categoryIds")
       (m.keySet().iterator().next(),m.values().iterator().next())
     }).reduceByKey(_+","+_).foreachRDD(rdd=>{

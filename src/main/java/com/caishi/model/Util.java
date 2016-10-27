@@ -24,8 +24,9 @@ public class Util {
                     cs.put(String.valueOf(c.getCatId()),cs.get(String.valueOf(c.getCatId()))+0.3);
                 else if(c.getCatId() == 23)
                     cs.put(String.valueOf(c.getCatId()),cs.get(String.valueOf(c.getCatId()))+0.7);
-            }
+		
             count +=1.0;
+            }
         }
 
         // 新旧数据拟合后归一化
